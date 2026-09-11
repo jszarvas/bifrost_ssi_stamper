@@ -95,9 +95,9 @@ def species_provided_is_detected(stamper, sample):
         if test["value"] is None:
             test["status"] = "pass"
             test["reason"] = "No submitted species"
-        elif test["value"] != species_detection["summary"].get("detected_species", None):
+        elif test["value"] != species_detection["summary"].get("provided_species", None):
             test["status"] = "fail"
-            test["reason"] = f"Detected species ({species_detection['summary'].get('species', None)} different than expected ({test['value']}))"
+            test["reason"] = f"Detected species ({species_detection['summary'].get('provided_species', None)} different than expected ({test['value']}))"
         else:
             test["status"] = "pass"
     stamper["summary"]["tests"].append(test.json)
